@@ -211,3 +211,18 @@ body {
 	object-fit:cover;
 	border-radius:50%;
 }
+
+/* search container */
+.search-container{
+	position:relative;
+}
+
+.search-result{
+	position:absolute;
+	background:white;
+	width:100%;
+	padding:10px;
+	border:1px solid gray;
+	z-index: 1000;
+	display:none;
+}

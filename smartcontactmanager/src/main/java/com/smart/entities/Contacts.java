@@ -1,5 +1,7 @@
 package com.smart.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +27,7 @@ public class Contacts {
 	private String description;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Users user;
 	
 	
