@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+</head>
+<body>
+
+	<!-- Define a fragment to pass to base.html -->
+	<section>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<div class="my-card  shadow mt-2 mb-2">
+
+						<!-- Check if there is a "message" in the model; display the alert if true -->
+						<div th:if="${message}" class="alert"
+							th:classappend="${message.type}" role="alert">
+							<!-- Display the content of the "message" from the model -->
+							<p class="text-center" th:text="${message.content}"></p>
+						</div>
+
+
+						<!-- image  -->
+						<div class="container text-center">
+							<img style="width: 80px" th:src="@{/image/register.png}" src=""
+								alt="" />
+						</div>
+
+						<h1 class="text-center">Register Here!!</h1>
+
+						<!-- form -->
+						<form novalidate action="" th:action="@{/do_register}"
+							method="post" th:object="${user}">
+
+							<!-- name field -->
+
+							<div class="mb-3">
+								<label for="name_field" class="form-label">Name</label> <input
+									type="text" class="form-control" id="name_field"
+									th:classappend="${#fields.hasErrors('name') ? 'is-invalid': ''}"
+									placeholder="Enter Here" required th:value="${user.name}"
+									name="name" />
+
+								<div class="invalid-feedback"
+									th:each="e:${#fields.errors('name')}" th:text="${e}"></div>
+							</div>
+
+
+
+							<!-- email field -->
+
+							<div class="mb-3">
+								<label for="email_field" class="form-label">Email</label> <input
+									type="email" class="form-control" id="email_field"
+									th:classappend="${#fields.hasErrors('email') ? 'is-invalid': ''}"
+									placeholder="Enter Here" required th:value="${user.email}"
+									name="email" />
+								<div class="invalid-feedback"
+									th:each="e:${#fields.errors('email')}" th:text="${e}"></div>
+							</div>
+
+							<!-- password field -->
+
+							<div class="mb-3">
+								<label for="password_field" class="form-label">Password</label>
+								<input type="password" class="form-control" id="password_field"
+									th:classappend="${#fields.hasErrors('password') ? 'is-invalid': ''}"
+									placeholder="Enter Here" required name="password"
+									pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,20}$"
+									title="Password must be 8-20 characters, include at least one digit, one lowercase, one uppercase, and one special character!" />
+								<div class="invalid-feedback"
+									th:each="e:${#fields.errors('password')}" th:text="${e}"></div>
+
+							</div>
+
+							<!-- user about field -->
+							<div>
+								<textarea class="form-control" id="floatingTextarea"
+									placeholder="Enter something about yourself"
+									th:text="${user.about}" name="about"></textarea>
+							</div>
+
+							<!-- checkbox field -->
+							<div class="text-center mt-2">
+								<input type="checkbox" name="agreement" class="form-check-input"
+									id="agreement" /> <label for="agreement">Accept terms
+									and condition</label>
+							</div>
+
+							<div class="container mt-2 text-center">
+								<button type="submit" class="btn bg-primary">Submit</button>
+								<button type="reset" class="btn btn-warning">Reset</button>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+body {
+	background : #e2e2e2!important;
+}
+
+.banner{
+	width:100%;
+	height:96vh;
+	background-image:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url("../image/banner2.jpg");
+	background-size:contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	color:white;
+}
+
+.bg-primary {
+	background:#009688 !important;
+}
+
+.my-card{
+	padding:20px;
+	background:#FFFFFF;
+}
+
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 380px;
+  border: 1px solid #9C9C9C;
+  background-color: white;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+.custom-right {
+    text-align: right;
+    display: block;
+}
+
+/* sidebar style */
+
+@media only screen and (max-width:600px){
+	.sidebar{
+		display:none;
+		width:80% !important;
+		height:100vh;
+		background:white;
+		position:fixed;
+		padding-top:20px;
+	}
+	
+	.content{
+		margin-left:0% !important;
+	}
+
+}
+
+
+.sidebar{
+	width:18%;
+	height:100%;
+	background:white;
+	position:fixed;
+	padding-top:45px;
+	z-index:99999999999;
+}
+
+.sidebar a{
+	display:block;	
+	width:100%;
+	padding:10px 25px;
+	text-decoration:none;
+	color:grey;
+}
+
+.sidebar a:hover{
+	background:#e2e2e2;
+}
+
+.sidebar .divider{
+	height:.5px;
+	widht:100%;
+	background:#e2e2e2;
+}
+
+.content{
+	margin-left:20%;
+}
+
+.content .baricon{
+	cursor:pointer;
+}
+
+.sidebar .crossbtn{
+	position:absolute;
+	right:25px;
+	top:0;
+	font-size:35px;
+	cursor:pointer;
+}
+
+
+.input-group-text, .form-control {
+    height: 38px; /* Match the default Bootstrap input height */
+}
+
+.input-group-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* update button of view contact */
+
+.yellow-icon {
+    color: #009688;
+    cursor: pointer;
+    position: relative;
+}
+
+.yellow-icon:hover::after {
+    content: "Update";
+    position: absolute;
+    top: 100%; /* Position below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    margin-top: 4px;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.yellow-icon::after {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* view button of view contact */
+
+.view-icon {
+    cursor: pointer;
+    position: relative;
+}
+
+.view-icon:hover::after {
+    content: "View contact";
+    position: absolute;
+    top: 100%; /* Position below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    margin-top: 4px;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.view-icon::after {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Delete icon of view contact */
+
+.delete-icon {
+    color: red;
+    cursor: pointer;
+    position: relative;
+}
+
+.delete-icon:hover::after {
+    content: "Delete";
+    position: absolute;
+    top: 100%; /* Position below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    margin-top: 4px;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.delete-icon::after {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.my_profile_photo {
+	width:35px;
+	height:35px;
+	object-fit:cover;
+	border-radius:50%;
+}

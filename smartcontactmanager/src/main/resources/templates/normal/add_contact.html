@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+</head>
+<body>
+	<h1>hi there</h1>
+
+	<!-- Define a fragment to pass to base.html -->
+	<section>
+		<div class="card me-3 ms-3">
+			<div class="card-body">
+				<h1 class="ms-3"
+					style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-left: 14rem !important;">Add
+					Contact</h1>
+
+
+
+				<div class="container-fluid mt-1">
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+
+							<!-- form field -->
+
+							<form action="#" th:object="${contact}"
+								enctype="multipart/form-data" method="POST"
+								th:action="@{/user/process-contact}" class="mt-2">
+
+								<!-- First Name -->
+								<div class="d-flex justify-content-center mt-2">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fa fa-plus"></i>
+											</div>
+										</div>
+										<input required type="text" class="form-control"
+											id="firstName" name="name" placeholder="Enter Name Here">
+									</div>
+								</div>
+
+								<!-- Second Name -->
+								<div class="d-flex justify-content-center mt-2">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fas fa-user-alt"></i>
+											</div>
+										</div>
+										<input type="text" class="form-control" id="SecondName"
+											name="secondName" placeholder="Enter Nick Name Here">
+									</div>
+								</div>
+
+								<!-- Work Field-->
+								<div class="d-flex justify-content-center mt-2">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fa fa-briefcase"></i>
+											</div>
+										</div>
+										<input type="text" class="form-control" id="work" name="work"
+											placeholder="Enter work Here">
+									</div>
+								</div>
+
+								<!-- Email Field-->
+								<div class="d-flex justify-content-center mt-2">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">@</div>
+										</div>
+										<input type="email" class="form-control" id="email"
+											name="email" placeholder="Enter Email Here">
+									</div>
+								</div>
+								
+								<!-- phone field -->
+								<div class="d-flex justify-content-center mt-2">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<i class="fa fa-phone"></i>
+											</div>
+										</div>
+										<input required type="text" class="form-control" id="phone"
+											name="phone" placeholder="Enter Phone Number Here"
+											pattern="^\+?[0-9]{10,13}$"
+											title="Phone number must be between 10 and 13 digits, and may start with a +">
+									</div>
+								</div>
+
+								<!-- Description Field -->
+								<div class="form-group mt-3">
+									<textarea name="description" id="mytextarea" rows="8"
+										class="form-control"
+										placeholder="Enter Contact Description Here"
+										style="height: auto;"></textarea>
+								</div>
+
+								<!-- contact image -->
+								<div class="custom-file mt-1">
+									<input type="file" name="profileImage" />
+								</div>
+
+								<!-- Save button -->
+								<div class="container text-center">
+									<button class="btn btn-outline-primary">Save contact</button>
+								</div>
+
+
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		
+	</section>
+</body>
+</html>
