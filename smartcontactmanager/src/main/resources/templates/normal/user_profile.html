@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+</head>
+<body>
+	<h1>hi there</h1>
+
+	<!-- Define a fragment to pass to base.html -->
+	<section>
+
+		<div class="container text-center">
+			<div class="card">
+				<div class="card-body">
+					<img style="height:150px;width:150px;" 
+     					alt="profile" 
+     					th:src="${user.imageUrl != 'default.png' ? ('/image/' + user.imageUrl) : '/image/contact.png'}" />
+						
+					<table class="table table-dark mt-2">
+						  <tbody>
+						    <tr>
+						      <th scope="row">Name</th>
+						      <td><span th:text="${user.name}"></span></td>
+						    </tr>
+						    <tr>
+						      <th scope="row">Email</th>
+						      <td><span th:text="${user.email}"></span></td>
+						    </tr>
+						    <tr>
+						      <th scope="row">about</th>
+						      <td><span th:text="${user.about}"></span></td>
+						    </tr>
+						  </tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

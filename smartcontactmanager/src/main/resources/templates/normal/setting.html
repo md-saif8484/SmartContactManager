@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+</head>
+<body>
+	<h1>hi there</h1>
+
+	<!-- Define a fragment to pass to base.html -->
+	<section>
+		<div class="card">
+			<div class="card-body">
+					<h1 class="text-center" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Update password</h1>
+					<form th:action="@{/user/process-setting}" method="post">
+					  <div class="form-group my-2">
+					    <input type="password" class="form-control" name="oldpassword" aria-describedby="emailHelp" placeholder="Enter old password">
+					    
+					  </div>
+					  <div class="form-group my-2">
+					    
+					    <input type="password" class="form-control" name="newpassword" placeholder="Enter new password">
+					  </div>
+					  <div class="container text-center">
+					  		<button type="submit" class="btn btn-success">Submit</button>
+					  		<button type="reset" class="btn btn-warning">Reset</button>
+					  </div>
+					  
+				</form>
+			</div>
+		</div>
+		
+					
+	</section>
+</body>
+</html>

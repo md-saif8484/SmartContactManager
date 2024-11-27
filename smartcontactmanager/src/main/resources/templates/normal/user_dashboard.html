@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
 <head>
 <meta charset="UTF-8">
-<title >Home Page</title>
+<title>Home Page</title>
 </head>
 <body>
 	<h1>hi there</h1>
-	
+
 	<!-- Define a fragment to pass to base.html -->
-    <section >
-        <h1>User Dashboard - Smart Contact Manager</h1>
-    </section>
+	<section>
+
+		<div class="container">
+			<div class="text-center header-section">
+				<h1>User Dashboard - Smart Contact Manager</h1>
+				<a th:href="@{/user/addcontact}"> <button class="btn btn-outline-primary">Add Contact</button>  </a>
+			</div>
+		</div>
+	</section>
 </body>
 </html>

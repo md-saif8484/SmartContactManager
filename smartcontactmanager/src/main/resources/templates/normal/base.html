@@ -61,10 +61,13 @@
 			th:href="@{/user/show-contact/0}"><i
 			class="fa-sharp fa-solid fa-address-card"></i> View Contacts</a> <a
 			href="#" class="item" th:href="@{/user/addcontact}"><i
-			class="fa-sharp fa-solid fa-user-pen"></i> Add Contact</a> <a href="#"
-			class="item"><i class="fa-sharp fa-solid fa-user"></i> Your
-			Profile</a> <a href="#" class="item"><i
-			class="fa-sharp fa-solid fa-gears"></i> Settings</a> <a href="#"
+			class="fa-sharp fa-solid fa-user-pen"></i> Add Contact</a> 
+			<a href="#" th:href="@{/user/profile}"
+			class="item"><i class="fa-sharp fa-solid fa-user"></i> Your Profile</a> 
+			<a href="#" class="item" th:href="@{/user/setting}">
+			<i class="fa-sharp fa-solid fa-gears"></i> Settings</a> 
+			
+			<a href="#"
 			th:href="@{/logout}" class="item"><i
 			class="fa-sharp fa-solid fa-right-from-bracket"></i> Logout</a>
 		<div class="divider"></div>

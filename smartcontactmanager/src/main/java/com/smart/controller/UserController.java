@@ -15,6 +15,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +38,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -267,5 +272,47 @@ public class UserController {
 		return "redirect:/user/" + contact.getcId() + "/contact";
 
 	}
+	
+	
+	/* User profile handler*/
+	@RequestMapping("/profile")
+	public String userProfile(Model m, Principal p)
+	{
+		String username = p.getName();
+		Users user = this.userRepository.getUserByUsername(username);
+		m.addAttribute("user",user);
+		return "normal/user_profile";
+	}
+	
+	/* setting profile handler */
+	@RequestMapping("/setting")
+	public String passSetting()
+	{
+		
+		return "normal/setting";
+	}
+	
+	/* Process setting profile handler */
+	@PostMapping("/process-setting")
+	public String processPass(@RequestParam("oldpassword") String oldpassword, 
+			@RequestParam("newpassword") String newpassword, Principal p,
+			RedirectAttributes redirectAttributes)
+	{
+		String username = p.getName();
+		Users user = this.userRepository.getUserByUsername(username);
+		String originalPassword = user.getPassword();
+		if(bCryptPasswordEncoder.matches(oldpassword, originalPassword))
+		{
+			user.setPassword(bCryptPasswordEncoder.encode(newpassword));
+			this.userRepository.save(user);
+			redirectAttributes.addFlashAttribute("message", new Message("Your password updated successfully","success"));
+			return "redirect:/user/index";
+		}
+		else {
+			redirectAttributes.addFlashAttribute("message", new Message("Your password does not match","danger"));
+			return "redirect:/user/setting";
+		}
+	}
+	
 
 }

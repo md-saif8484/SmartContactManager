@@ -226,3 +226,30 @@ body {
 	z-index: 1000;
 	display:none;
 }
+
+/* user-dashboard */
+
+/* Set the container dimensions and background image */
+.header-section {
+    position: relative;
+    text-align: center;
+    height: 100vh; /* Adjust height as needed */
+    background: url('/image/background_contact.jpg') no-repeat center center;
+    background-size: cover; /* Ensures the image covers the entire area */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style the heading */
+.header-section h1 {
+    margin: 0;
+    color: grey; /* Black text color */
+    font-size: 2rem; /* Adjust font size as needed */
+}
+
+/* Style the button */
+.header-section .btn {
+    margin-top: 10px; /* Add space between the heading and the button */
+}
